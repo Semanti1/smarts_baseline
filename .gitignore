@@ -115,7 +115,7 @@ traffic_histories.pkl
 
 # run logs
 _run_logs
-results
+#results
 supervisord.log
 supervisord.pid
 xdummy.log

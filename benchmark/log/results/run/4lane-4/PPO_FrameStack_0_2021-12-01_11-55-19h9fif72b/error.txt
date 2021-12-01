@@ -1,0 +1,336 @@
+Failure # 1 (occurred at 2021-12-01_11-55-28)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(OSError): [36mray::PPO.train()[39m (pid=49037, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 519, in train
+    raise e
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 508, in train
+    result = Trainable.train(self)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 332, in train
+    result = self.step()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 110, in step
+    res = next(self.train_exec_impl)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 758, in __next__
+    return next(self.built_iterator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 845, in apply_filter
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 845, in apply_filter
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 878, in apply_flatten
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 830, in add_wait_hooks
+    item = next(it)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 472, in base_iterator
+    yield ray.get(futures, timeout=timeout)
+ray.exceptions.RayTaskError(OSError): [36mray::RolloutWorker.par_iter_next()[39m (pid=49030, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 1156, in par_iter_next
+    return next(self.local_it)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 281, in gen_rollouts
+    yield self.sample()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 563, in sample
+    batches = [self.input_reader.next()]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 71, in next
+    batches = [self.get_data()]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 181, in get_data
+    item = next(self.rollout_provider)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 505, in _env_runner
+    base_env.poll()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 389, in poll
+    obs[i], rewards[i], dones[i], infos[i] = env_state.poll()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 441, in poll
+    self.reset()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 459, in reset
+    self.last_obs = self.env.reset()
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 202, in reset
+    observations = super(FrameStack, self).reset()
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 77, in reset
+    return self.env.reset()
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 159, in reset
+    self._smarts.setup(scenario)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/smarts.py", line 354, in setup
+    self._setup_road_network()
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/smarts.py", line 383, in _setup_road_network
+    model_np = self.loader.loadModel(glb_path, noCache=True)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/direct/showbase/Loader.py", line 298, in loadModel
+    raise IOError(message)
+OSError: Could not load model file(s): ['/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/4lane/map.glb']
+
+Failure # 2 (occurred at 2021-12-01_11-55-36)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(OSError): [36mray::PPO.train()[39m (pid=49028, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 519, in train
+    raise e
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 508, in train
+    result = Trainable.train(self)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 332, in train
+    result = self.step()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 110, in step
+    res = next(self.train_exec_impl)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 758, in __next__
+    return next(self.built_iterator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 845, in apply_filter
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 845, in apply_filter
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 878, in apply_flatten
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 830, in add_wait_hooks
+    item = next(it)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 472, in base_iterator
+    yield ray.get(futures, timeout=timeout)
+ray.exceptions.RayTaskError(OSError): [36mray::RolloutWorker.par_iter_next()[39m (pid=49027, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 1156, in par_iter_next
+    return next(self.local_it)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 281, in gen_rollouts
+    yield self.sample()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 563, in sample
+    batches = [self.input_reader.next()]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 71, in next
+    batches = [self.get_data()]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 181, in get_data
+    item = next(self.rollout_provider)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 505, in _env_runner
+    base_env.poll()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 389, in poll
+    obs[i], rewards[i], dones[i], infos[i] = env_state.poll()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 441, in poll
+    self.reset()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 459, in reset
+    self.last_obs = self.env.reset()
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 202, in reset
+    observations = super(FrameStack, self).reset()
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 77, in reset
+    return self.env.reset()
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 159, in reset
+    self._smarts.setup(scenario)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/smarts.py", line 354, in setup
+    self._setup_road_network()
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/smarts.py", line 383, in _setup_road_network
+    model_np = self.loader.loadModel(glb_path, noCache=True)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/direct/showbase/Loader.py", line 298, in loadModel
+    raise IOError(message)
+OSError: Could not load model file(s): ['/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/4lane/map.glb']
+
+Failure # 3 (occurred at 2021-12-01_11-55-45)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(OSError): [36mray::PPO.train()[39m (pid=49035, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 519, in train
+    raise e
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 508, in train
+    result = Trainable.train(self)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 332, in train
+    result = self.step()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 110, in step
+    res = next(self.train_exec_impl)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 758, in __next__
+    return next(self.built_iterator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 845, in apply_filter
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 845, in apply_filter
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 878, in apply_flatten
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 830, in add_wait_hooks
+    item = next(it)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 472, in base_iterator
+    yield ray.get(futures, timeout=timeout)
+ray.exceptions.RayTaskError(OSError): [36mray::RolloutWorker.par_iter_next()[39m (pid=49024, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 1156, in par_iter_next
+    return next(self.local_it)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 281, in gen_rollouts
+    yield self.sample()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 563, in sample
+    batches = [self.input_reader.next()]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 71, in next
+    batches = [self.get_data()]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 181, in get_data
+    item = next(self.rollout_provider)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 505, in _env_runner
+    base_env.poll()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 389, in poll
+    obs[i], rewards[i], dones[i], infos[i] = env_state.poll()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 441, in poll
+    self.reset()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 459, in reset
+    self.last_obs = self.env.reset()
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 202, in reset
+    observations = super(FrameStack, self).reset()
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 77, in reset
+    return self.env.reset()
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 159, in reset
+    self._smarts.setup(scenario)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/smarts.py", line 354, in setup
+    self._setup_road_network()
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/smarts.py", line 383, in _setup_road_network
+    model_np = self.loader.loadModel(glb_path, noCache=True)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/direct/showbase/Loader.py", line 298, in loadModel
+    raise IOError(message)
+OSError: Could not load model file(s): ['/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/4lane/map.glb']
+
+Failure # 4 (occurred at 2021-12-01_11-55-52)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(OSError): [36mray::PPO.train()[39m (pid=49025, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 519, in train
+    raise e
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 508, in train
+    result = Trainable.train(self)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 332, in train
+    result = self.step()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 110, in step
+    res = next(self.train_exec_impl)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 758, in __next__
+    return next(self.built_iterator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 845, in apply_filter
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 845, in apply_filter
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 878, in apply_flatten
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 830, in add_wait_hooks
+    item = next(it)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 785, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 472, in base_iterator
+    yield ray.get(futures, timeout=timeout)
+ray.exceptions.RayTaskError(OSError): [36mray::RolloutWorker.par_iter_next()[39m (pid=49026, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/util/iter.py", line 1156, in par_iter_next
+    return next(self.local_it)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 281, in gen_rollouts
+    yield self.sample()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 563, in sample
+    batches = [self.input_reader.next()]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 71, in next
+    batches = [self.get_data()]
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 181, in get_data
+    item = next(self.rollout_provider)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/sampler.py", line 505, in _env_runner
+    base_env.poll()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 389, in poll
+    obs[i], rewards[i], dones[i], infos[i] = env_state.poll()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 441, in poll
+    self.reset()
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/env/base_env.py", line 459, in reset
+    self.last_obs = self.env.reset()
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 202, in reset
+    observations = super(FrameStack, self).reset()
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 77, in reset
+    return self.env.reset()
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 159, in reset
+    self._smarts.setup(scenario)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/smarts.py", line 354, in setup
+    self._setup_road_network()
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/smarts.py", line 383, in _setup_road_network
+    model_np = self.loader.loadModel(glb_path, noCache=True)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/direct/showbase/Loader.py", line 298, in loadModel
+    raise IOError(message)
+OSError: Could not load model file(s): ['/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/4lane/map.glb']
+

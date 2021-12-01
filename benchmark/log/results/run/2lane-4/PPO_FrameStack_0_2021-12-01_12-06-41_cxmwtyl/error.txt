@@ -1,0 +1,552 @@
+Failure # 1 (occurred at 2021-12-01_12-06-43)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=51331, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 439, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 474, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 478, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 88, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 479, in __init__
+    super().__init__(config, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 245, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 643, in setup
+    self._init(self.config, self.env_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 102, in _init
+    env_creator, self._policy, config, self.config["num_workers"])
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 713, in _make_workers
+    logdir=self.logdir)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 67, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 296, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 324, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 1196, in <lambda>
+    register_env(name, lambda config: env_object(config))
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 84, in __init__
+    super(FrameStack, self).__init__(config)
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 30, in __init__
+    self.env = RLlibHiWayEnv(config)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 78, in __init__
+    config["scenarios"], list(self._agent_specs.keys()),
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 231, in scenario_variations
+    scenario_roots.extend(Scenario.discover_scenarios(root))
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 478, in discover_scenarios
+    for scenario_file in os.listdir(scenario_or_scenarios_dir):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/2lane'
+
+Failure # 2 (occurred at 2021-12-01_12-06-46)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=51337, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 439, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 474, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 478, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 88, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 479, in __init__
+    super().__init__(config, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 245, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 643, in setup
+    self._init(self.config, self.env_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 102, in _init
+    env_creator, self._policy, config, self.config["num_workers"])
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 713, in _make_workers
+    logdir=self.logdir)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 67, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 296, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 324, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 1196, in <lambda>
+    register_env(name, lambda config: env_object(config))
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 84, in __init__
+    super(FrameStack, self).__init__(config)
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 30, in __init__
+    self.env = RLlibHiWayEnv(config)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 78, in __init__
+    config["scenarios"], list(self._agent_specs.keys()),
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 231, in scenario_variations
+    scenario_roots.extend(Scenario.discover_scenarios(root))
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 478, in discover_scenarios
+    for scenario_file in os.listdir(scenario_or_scenarios_dir):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/2lane'
+
+Failure # 3 (occurred at 2021-12-01_12-06-48)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=51338, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 439, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 474, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 478, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 88, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 479, in __init__
+    super().__init__(config, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 245, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 643, in setup
+    self._init(self.config, self.env_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 102, in _init
+    env_creator, self._policy, config, self.config["num_workers"])
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 713, in _make_workers
+    logdir=self.logdir)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 67, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 296, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 324, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 1196, in <lambda>
+    register_env(name, lambda config: env_object(config))
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 84, in __init__
+    super(FrameStack, self).__init__(config)
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 30, in __init__
+    self.env = RLlibHiWayEnv(config)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 78, in __init__
+    config["scenarios"], list(self._agent_specs.keys()),
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 231, in scenario_variations
+    scenario_roots.extend(Scenario.discover_scenarios(root))
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 478, in discover_scenarios
+    for scenario_file in os.listdir(scenario_or_scenarios_dir):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/2lane'
+
+Failure # 4 (occurred at 2021-12-01_12-06-51)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=51328, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 439, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 474, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 478, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 88, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 479, in __init__
+    super().__init__(config, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 245, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 643, in setup
+    self._init(self.config, self.env_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 102, in _init
+    env_creator, self._policy, config, self.config["num_workers"])
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 713, in _make_workers
+    logdir=self.logdir)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 67, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 296, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 324, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 1196, in <lambda>
+    register_env(name, lambda config: env_object(config))
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 84, in __init__
+    super(FrameStack, self).__init__(config)
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 30, in __init__
+    self.env = RLlibHiWayEnv(config)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 78, in __init__
+    config["scenarios"], list(self._agent_specs.keys()),
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 231, in scenario_variations
+    scenario_roots.extend(Scenario.discover_scenarios(root))
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 478, in discover_scenarios
+    for scenario_file in os.listdir(scenario_or_scenarios_dir):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/2lane'
+
+Failure # 5 (occurred at 2021-12-01_12-06-53)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=51329, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 439, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 474, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 478, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 88, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 479, in __init__
+    super().__init__(config, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 245, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 643, in setup
+    self._init(self.config, self.env_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 102, in _init
+    env_creator, self._policy, config, self.config["num_workers"])
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 713, in _make_workers
+    logdir=self.logdir)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 67, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 296, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 324, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 1196, in <lambda>
+    register_env(name, lambda config: env_object(config))
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 84, in __init__
+    super(FrameStack, self).__init__(config)
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 30, in __init__
+    self.env = RLlibHiWayEnv(config)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 78, in __init__
+    config["scenarios"], list(self._agent_specs.keys()),
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 231, in scenario_variations
+    scenario_roots.extend(Scenario.discover_scenarios(root))
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 478, in discover_scenarios
+    for scenario_file in os.listdir(scenario_or_scenarios_dir):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/2lane'
+
+Failure # 6 (occurred at 2021-12-01_12-06-56)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=51327, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 439, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 474, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 478, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 88, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 479, in __init__
+    super().__init__(config, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 245, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 643, in setup
+    self._init(self.config, self.env_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 102, in _init
+    env_creator, self._policy, config, self.config["num_workers"])
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 713, in _make_workers
+    logdir=self.logdir)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 67, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 296, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 324, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 1196, in <lambda>
+    register_env(name, lambda config: env_object(config))
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 84, in __init__
+    super(FrameStack, self).__init__(config)
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 30, in __init__
+    self.env = RLlibHiWayEnv(config)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 78, in __init__
+    config["scenarios"], list(self._agent_specs.keys()),
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 231, in scenario_variations
+    scenario_roots.extend(Scenario.discover_scenarios(root))
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 478, in discover_scenarios
+    for scenario_file in os.listdir(scenario_or_scenarios_dir):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/2lane'
+
+Failure # 7 (occurred at 2021-12-01_12-06-58)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=51332, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 439, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 474, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 478, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 88, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 479, in __init__
+    super().__init__(config, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 245, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 643, in setup
+    self._init(self.config, self.env_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 102, in _init
+    env_creator, self._policy, config, self.config["num_workers"])
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 713, in _make_workers
+    logdir=self.logdir)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 67, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 296, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 324, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 1196, in <lambda>
+    register_env(name, lambda config: env_object(config))
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 84, in __init__
+    super(FrameStack, self).__init__(config)
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 30, in __init__
+    self.env = RLlibHiWayEnv(config)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 78, in __init__
+    config["scenarios"], list(self._agent_specs.keys()),
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 231, in scenario_variations
+    scenario_roots.extend(Scenario.discover_scenarios(root))
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 478, in discover_scenarios
+    for scenario_file in os.listdir(scenario_or_scenarios_dir):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/2lane'
+
+Failure # 8 (occurred at 2021-12-01_12-07-01)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=51326, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 439, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 474, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 478, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 88, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 479, in __init__
+    super().__init__(config, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 245, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 643, in setup
+    self._init(self.config, self.env_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 102, in _init
+    env_creator, self._policy, config, self.config["num_workers"])
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 713, in _make_workers
+    logdir=self.logdir)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 67, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 296, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 324, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 1196, in <lambda>
+    register_env(name, lambda config: env_object(config))
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 84, in __init__
+    super(FrameStack, self).__init__(config)
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 30, in __init__
+    self.env = RLlibHiWayEnv(config)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 78, in __init__
+    config["scenarios"], list(self._agent_specs.keys()),
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 231, in scenario_variations
+    scenario_roots.extend(Scenario.discover_scenarios(root))
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 478, in discover_scenarios
+    for scenario_file in os.listdir(scenario_or_scenarios_dir):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/2lane'
+
+Failure # 9 (occurred at 2021-12-01_12-07-04)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=51593, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 439, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 474, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 478, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 88, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 479, in __init__
+    super().__init__(config, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 245, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 643, in setup
+    self._init(self.config, self.env_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 102, in _init
+    env_creator, self._policy, config, self.config["num_workers"])
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 713, in _make_workers
+    logdir=self.logdir)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 67, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 296, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 324, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 1196, in <lambda>
+    register_env(name, lambda config: env_object(config))
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 84, in __init__
+    super(FrameStack, self).__init__(config)
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 30, in __init__
+    self.env = RLlibHiWayEnv(config)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 78, in __init__
+    config["scenarios"], list(self._agent_specs.keys()),
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 231, in scenario_variations
+    scenario_roots.extend(Scenario.discover_scenarios(root))
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 478, in discover_scenarios
+    for scenario_file in os.listdir(scenario_or_scenarios_dir):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/2lane'
+
+Failure # 10 (occurred at 2021-12-01_12-07-07)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=51618, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 439, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 474, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 478, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 88, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 479, in __init__
+    super().__init__(config, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 245, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 643, in setup
+    self._init(self.config, self.env_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 102, in _init
+    env_creator, self._policy, config, self.config["num_workers"])
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 713, in _make_workers
+    logdir=self.logdir)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 67, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 296, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 324, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 1196, in <lambda>
+    register_env(name, lambda config: env_object(config))
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 84, in __init__
+    super(FrameStack, self).__init__(config)
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 30, in __init__
+    self.env = RLlibHiWayEnv(config)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 78, in __init__
+    config["scenarios"], list(self._agent_specs.keys()),
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 231, in scenario_variations
+    scenario_roots.extend(Scenario.discover_scenarios(root))
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 478, in discover_scenarios
+    for scenario_file in os.listdir(scenario_or_scenarios_dir):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/2lane'
+
+Failure # 11 (occurred at 2021-12-01_12-07-10)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=51645, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 439, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 474, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 478, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 88, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 479, in __init__
+    super().__init__(config, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 245, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 643, in setup
+    self._init(self.config, self.env_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 102, in _init
+    env_creator, self._policy, config, self.config["num_workers"])
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 713, in _make_workers
+    logdir=self.logdir)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 67, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 296, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 324, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 1196, in <lambda>
+    register_env(name, lambda config: env_object(config))
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 84, in __init__
+    super(FrameStack, self).__init__(config)
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 30, in __init__
+    self.env = RLlibHiWayEnv(config)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 78, in __init__
+    config["scenarios"], list(self._agent_specs.keys()),
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 231, in scenario_variations
+    scenario_roots.extend(Scenario.discover_scenarios(root))
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 478, in discover_scenarios
+    for scenario_file in os.listdir(scenario_or_scenarios_dir):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/2lane'
+
+Failure # 12 (occurred at 2021-12-01_12-07-12)
+Traceback (most recent call last):
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trial_runner.py", line 471, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/ray_trial_executor.py", line 430, in fetch_result
+    result = ray.get(trial_future[0], DEFAULT_GET_TIMEOUT)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/worker.py", line 1538, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(FileNotFoundError): [36mray::PPO.train()[39m (pid=51674, ip=10.116.70.179)
+  File "python/ray/_raylet.pyx", line 439, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 474, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 478, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 479, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 432, in ray._raylet.execute_task.function_executor
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 88, in __init__
+    Trainer.__init__(self, config, env, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 479, in __init__
+    super().__init__(config, logger_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/tune/trainable.py", line 245, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 643, in setup
+    self._init(self.config, self.env_creator)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer_template.py", line 102, in _init
+    env_creator, self._policy, config, self.config["num_workers"])
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 713, in _make_workers
+    logdir=self.logdir)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 67, in __init__
+    RolloutWorker, env_creator, policy, 0, self._local_config)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/worker_set.py", line 296, in _make_worker
+    extra_python_environs=extra_python_environs)
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/evaluation/rollout_worker.py", line 324, in __init__
+    self.env = _validate_env(env_creator(env_context))
+  File "/home/semantibasu/.venv/lib/python3.7/site-packages/ray/rllib/agents/trainer.py", line 1196, in <lambda>
+    register_env(name, lambda config: env_object(config))
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/frame_stack.py", line 84, in __init__
+    super(FrameStack, self).__init__(config)
+  File "/home/semantibasu/smarts_new/SMARTS/benchmark/wrappers/rllib/wrapper.py", line 30, in __init__
+    self.env = RLlibHiWayEnv(config)
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/env/rllib_hiway_env.py", line 78, in __init__
+    config["scenarios"], list(self._agent_specs.keys()),
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 231, in scenario_variations
+    scenario_roots.extend(Scenario.discover_scenarios(root))
+  File "/home/semantibasu/smarts_new/SMARTS/smarts/core/scenario.py", line 478, in discover_scenarios
+    for scenario_file in os.listdir(scenario_or_scenarios_dir):
+FileNotFoundError: [Errno 2] No such file or directory: '/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/2lane'
+

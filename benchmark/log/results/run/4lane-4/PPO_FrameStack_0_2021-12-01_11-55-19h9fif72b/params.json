@@ -1,0 +1,47 @@
+{
+  "callbacks": "<class 'benchmark.common.SimpleCallbacks'>",
+  "clip_param": 0.2,
+  "env": "<class 'benchmark.wrappers.rllib.frame_stack.FrameStack'>",
+  "env_config": {
+    "agent_specs": {
+      "default_policy": "AgentSpec(interface=AgentInterface(debug=False, done_criteria=DoneCriteria(collision=True, off_road=True, off_route=True, on_shoulder=False, wrong_way=False, not_moving=False), max_episode_steps=1000, neighborhood_vehicles=NeighborhoodVehicles(radius=50), waypoints=Waypoints(lookahead=50), road_waypoints=False, drivable_area_grid_map=False, ogm=False, rgb=False, lidar=False, action=<ActionSpaceType.Lane: 1>, vehicle_type='sedan', accelerometer=Accelerometer(), agent_behavior=None), agent_builder=None, agent_params=None, policy_builder=None, policy_params=None, observation_adapter=<function AgentSpec.<lambda> at 0x7f41105e7d40>, action_adapter=<function AgentSpec.<lambda> at 0x7f411035fdd0>, reward_adapter=<function AgentSpec.<lambda> at 0x7f411035f680>, info_adapter=<function AgentSpec.<lambda> at 0x7f411035f710>, perform_self_test=False)"
+    },
+    "custom_config": {
+      "action_adapter": "<function ActionAdapter.discrete_action_adapter at 0x7f40676b4b00>",
+      "action_space": "Discrete(4)",
+      "info_adapter": null,
+      "name": "FrameStack",
+      "num_stack": 3,
+      "observation_adapter": "<function FrameStack.get_observation_adapter.<locals>.func at 0x7f4064e2eef0>",
+      "observation_space": "Tuple(Dict(distance_to_center:Box(-inf, inf, (1,), float32), goal_relative_pos:Box(-inf, inf, (2,), float32), heading_errors:Box(-inf, inf, (20,), float32), neighbor:Box(-inf, inf, (40,), float32), speed:Box(-inf, inf, (1,), float32), steering:Box(-inf, inf, (1,), float32)), Dict(distance_to_center:Box(-inf, inf, (1,), float32), goal_relative_pos:Box(-inf, inf, (2,), float32), heading_errors:Box(-inf, inf, (20,), float32), neighbor:Box(-inf, inf, (40,), float32), speed:Box(-inf, inf, (1,), float32), steering:Box(-inf, inf, (1,), float32)), Dict(distance_to_center:Box(-inf, inf, (1,), float32), goal_relative_pos:Box(-inf, inf, (2,), float32), heading_errors:Box(-inf, inf, (20,), float32), neighbor:Box(-inf, inf, (40,), float32), speed:Box(-inf, inf, (1,), float32), steering:Box(-inf, inf, (1,), float32)))",
+      "reward_adapter": "<function FrameStack.get_reward_adapter.<locals>.func at 0x7f4064e3b050>"
+    },
+    "headless": true,
+    "scenarios": [
+      "/home/semantibasu/smarts_new/SMARTS/benchmark/scenarios/intersections/4lane"
+    ],
+    "seed": 42
+  },
+  "horizon": 1000,
+  "lambda": 0,
+  "log_level": "WARN",
+  "lr": 0.0001,
+  "multiagent": {
+    "policies": {
+      "default_policy": [
+        null,
+        "Tuple(Dict(distance_to_center:Box(-inf, inf, (1,), float32), goal_relative_pos:Box(-inf, inf, (2,), float32), heading_errors:Box(-inf, inf, (20,), float32), neighbor:Box(-inf, inf, (40,), float32), speed:Box(-inf, inf, (1,), float32), steering:Box(-inf, inf, (1,), float32)), Dict(distance_to_center:Box(-inf, inf, (1,), float32), goal_relative_pos:Box(-inf, inf, (2,), float32), heading_errors:Box(-inf, inf, (20,), float32), neighbor:Box(-inf, inf, (40,), float32), speed:Box(-inf, inf, (1,), float32), steering:Box(-inf, inf, (1,), float32)), Dict(distance_to_center:Box(-inf, inf, (1,), float32), goal_relative_pos:Box(-inf, inf, (2,), float32), heading_errors:Box(-inf, inf, (20,), float32), neighbor:Box(-inf, inf, (40,), float32), speed:Box(-inf, inf, (1,), float32), steering:Box(-inf, inf, (1,), float32)))",
+        "Discrete(4)",
+        {
+          "agent_id": "default_policy",
+          "custom_preprocessor": "<class 'benchmark.wrappers.rllib.frame_stack.TupleStackingPreprocessor'>"
+        }
+      ]
+    },
+    "policy_mapping_fn": "<function gen_config.<locals>.<lambda> at 0x7f4064e2ef80>"
+  },
+  "num_gpus": 0,
+  "num_sgd_iter": 10,
+  "num_workers": 1,
+  "sgd_minibatch_size": 32
+}
