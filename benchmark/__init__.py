@@ -1,6 +1,8 @@
 import gym
 
 from pathlib import Path
+import os, sys
+sys.path.insert(0, os.path.abspath(".."))
 from smarts.core.scenario import Scenario
 from smarts.core.agent import AgentSpec
 
